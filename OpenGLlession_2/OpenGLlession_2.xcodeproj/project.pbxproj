@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F1E74B21E3864FE00A821BF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E74B11E3864FE00A821BF /* main.cpp */; };
-		5F1E74C01E38E2D700A821BF /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1E74BF1E38E2D700A821BF /* libGLEW.a */; };
-		5F1E74C21E38E2E700A821BF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1E74C11E38E2E700A821BF /* OpenGL.framework */; };
-		5F1E74C61E390EC500A821BF /* libGLSLPorgram.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1E74C51E390EC500A821BF /* libGLSLPorgram.dylib */; };
+		5F1E74D41E39102300A821BF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E74D31E39102300A821BF /* main.cpp */; };
+		5F1E74DC1E39106500A821BF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1E74DB1E39106500A821BF /* OpenGL.framework */; };
+		5F1E74DE1E39107F00A821BF /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1E74DD1E39107F00A821BF /* libGLEW.a */; };
+		5F1E74E01E39109400A821BF /* libGLSLPorgram.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1E74DF1E39109400A821BF /* libGLSLPorgram.dylib */; };
+		5F1E74F51E39471500A821BF /* shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F1E74F31E39471500A821BF /* shape.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5F1E74AC1E3864FD00A821BF /* CopyFiles */ = {
+		5F1E74CE1E39102300A821BF /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -26,64 +27,68 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5F1E74AE1E3864FE00A821BF /* OpenGLlesson_1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGLlesson_1; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F1E74B11E3864FE00A821BF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		5F1E74BA1E3867F500A821BF /* libGLSLPorgram.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libGLSLPorgram.dylib; sourceTree = "<group>"; };
-		5F1E74BF1E38E2D700A821BF /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../../usr/local/lib/libGLEW.a; sourceTree = "<group>"; };
-		5F1E74C11E38E2E700A821BF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		5F1E74C31E38EAA500A821BF /* basic.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.frag; sourceTree = "<group>"; };
-		5F1E74C41E38EAA500A821BF /* basic.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.vert; sourceTree = "<group>"; };
-		5F1E74C51E390EC500A821BF /* libGLSLPorgram.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLSLPorgram.dylib; path = ../../../../../usr/local/lib/libGLSLPorgram.dylib; sourceTree = "<group>"; };
+		5F1E74D01E39102300A821BF /* OpenGLlession_2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGLlession_2; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F1E74D31E39102300A821BF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5F1E74DB1E39106500A821BF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		5F1E74DD1E39107F00A821BF /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../../usr/local/lib/libGLEW.a; sourceTree = "<group>"; };
+		5F1E74DF1E39109400A821BF /* libGLSLPorgram.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLSLPorgram.dylib; path = ../../../../../usr/local/lib/libGLSLPorgram.dylib; sourceTree = "<group>"; };
+		5F1E74E11E39110300A821BF /* basic.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.frag; sourceTree = "<group>"; };
+		5F1E74E21E39110300A821BF /* basic.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.vert; sourceTree = "<group>"; };
+		5F1E74F31E39471500A821BF /* shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shape.cpp; sourceTree = "<group>"; };
+		5F1E74F41E39471500A821BF /* shape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shape.hpp; sourceTree = "<group>"; };
+		5F1E74F61E39484600A821BF /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5F1E74AB1E3864FD00A821BF /* Frameworks */ = {
+		5F1E74CD1E39102300A821BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F1E74C61E390EC500A821BF /* libGLSLPorgram.dylib in Frameworks */,
-				5F1E74C21E38E2E700A821BF /* OpenGL.framework in Frameworks */,
-				5F1E74C01E38E2D700A821BF /* libGLEW.a in Frameworks */,
+				5F1E74E01E39109400A821BF /* libGLSLPorgram.dylib in Frameworks */,
+				5F1E74DE1E39107F00A821BF /* libGLEW.a in Frameworks */,
+				5F1E74DC1E39106500A821BF /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F1E74A51E3864FD00A821BF = {
+		5F1E74C71E39102300A821BF = {
 			isa = PBXGroup;
 			children = (
-				5F1E74B01E3864FE00A821BF /* OpenGLlesson_1 */,
-				5F1E74AF1E3864FE00A821BF /* Products */,
-				5F1E74B91E3867F500A821BF /* Frameworks */,
+				5F1E74D21E39102300A821BF /* OpenGLlession_2 */,
+				5F1E74D11E39102300A821BF /* Products */,
+				5F1E74DA1E39106500A821BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		5F1E74AF1E3864FE00A821BF /* Products */ = {
+		5F1E74D11E39102300A821BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F1E74AE1E3864FE00A821BF /* OpenGLlesson_1 */,
+				5F1E74D01E39102300A821BF /* OpenGLlession_2 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F1E74B01E3864FE00A821BF /* OpenGLlesson_1 */ = {
+		5F1E74D21E39102300A821BF /* OpenGLlession_2 */ = {
 			isa = PBXGroup;
 			children = (
-				5F1E74C41E38EAA500A821BF /* basic.vert */,
-				5F1E74C31E38EAA500A821BF /* basic.frag */,
-				5F1E74B11E3864FE00A821BF /* main.cpp */,
+				5F1E74E11E39110300A821BF /* basic.frag */,
+				5F1E74E21E39110300A821BF /* basic.vert */,
+				5F1E74D31E39102300A821BF /* main.cpp */,
+				5F1E74F31E39471500A821BF /* shape.cpp */,
+				5F1E74F41E39471500A821BF /* shape.hpp */,
+				5F1E74F61E39484600A821BF /* define.h */,
 			);
-			path = OpenGLlesson_1;
+			path = OpenGLlession_2;
 			sourceTree = "<group>";
 		};
-		5F1E74B91E3867F500A821BF /* Frameworks */ = {
+		5F1E74DA1E39106500A821BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5F1E74C51E390EC500A821BF /* libGLSLPorgram.dylib */,
-				5F1E74C11E38E2E700A821BF /* OpenGL.framework */,
-				5F1E74BF1E38E2D700A821BF /* libGLEW.a */,
-				5F1E74BA1E3867F500A821BF /* libGLSLPorgram.dylib */,
+				5F1E74DF1E39109400A821BF /* libGLSLPorgram.dylib */,
+				5F1E74DD1E39107F00A821BF /* libGLEW.a */,
+				5F1E74DB1E39106500A821BF /* OpenGL.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -91,69 +96,70 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5F1E74AD1E3864FD00A821BF /* OpenGLlesson_1 */ = {
+		5F1E74CF1E39102300A821BF /* OpenGLlession_2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F1E74B51E3864FE00A821BF /* Build configuration list for PBXNativeTarget "OpenGLlesson_1" */;
+			buildConfigurationList = 5F1E74D71E39102300A821BF /* Build configuration list for PBXNativeTarget "OpenGLlession_2" */;
 			buildPhases = (
-				5F1E74AA1E3864FD00A821BF /* Sources */,
-				5F1E74AB1E3864FD00A821BF /* Frameworks */,
-				5F1E74AC1E3864FD00A821BF /* CopyFiles */,
+				5F1E74CC1E39102300A821BF /* Sources */,
+				5F1E74CD1E39102300A821BF /* Frameworks */,
+				5F1E74CE1E39102300A821BF /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = OpenGLlesson_1;
-			productName = OpenGLlesson_1;
-			productReference = 5F1E74AE1E3864FE00A821BF /* OpenGLlesson_1 */;
+			name = OpenGLlession_2;
+			productName = OpenGLlession_2;
+			productReference = 5F1E74D01E39102300A821BF /* OpenGLlession_2 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5F1E74A61E3864FD00A821BF /* Project object */ = {
+		5F1E74C81E39102300A821BF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = lianyuzhe;
 				TargetAttributes = {
-					5F1E74AD1E3864FD00A821BF = {
+					5F1E74CF1E39102300A821BF = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = P88Z863L3Q;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 5F1E74A91E3864FD00A821BF /* Build configuration list for PBXProject "OpenGLlesson_1" */;
+			buildConfigurationList = 5F1E74CB1E39102300A821BF /* Build configuration list for PBXProject "OpenGLlession_2" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 5F1E74A51E3864FD00A821BF;
-			productRefGroup = 5F1E74AF1E3864FE00A821BF /* Products */;
+			mainGroup = 5F1E74C71E39102300A821BF;
+			productRefGroup = 5F1E74D11E39102300A821BF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F1E74AD1E3864FD00A821BF /* OpenGLlesson_1 */,
+				5F1E74CF1E39102300A821BF /* OpenGLlession_2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5F1E74AA1E3864FD00A821BF /* Sources */ = {
+		5F1E74CC1E39102300A821BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F1E74B21E3864FE00A821BF /* main.cpp in Sources */,
+				5F1E74D41E39102300A821BF /* main.cpp in Sources */,
+				5F1E74F51E39471500A821BF /* shape.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5F1E74B31E3864FE00A821BF /* Debug */ = {
+		5F1E74D51E39102300A821BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,7 +206,7 @@
 			};
 			name = Debug;
 		};
-		5F1E74B41E3864FE00A821BF /* Release */ = {
+		5F1E74D61E39102300A821BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -240,85 +246,80 @@
 			};
 			name = Release;
 		};
-		5F1E74B61E3864FE00A821BF /* Debug */ = {
+		5F1E74D81E39102300A821BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = P88Z863L3Q;
 				HEADER_SEARCH_PATHS = (
-					"$(glm)",
 					/usr/local/Cellar/glew/2.0.0/include/,
-					/usr/local/Cellar/glfw3/3.2.1/include/,
 					"/Users/lianyuzhe/xcode\\ workspace/OpenGL/GLSLPorgram",
+					/usr/local/Cellar/glfw3/3.2.1/include/,
+					"$(glm)",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/freeimage/3.17.0/lib,
 					/usr/local/Cellar/glfw3/3.2.1/lib,
-					"$(PROJECT_DIR)",
-					"$(glew_lib)",
 					/usr/local/lib,
 				);
 				OTHER_LDFLAGS = (
-					"-lfreeimage",
 					"-lGLEW",
+					"-lfreeimage",
 					"-lglfw3",
 					"-lGLSLPorgram",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
-		5F1E74B71E3864FE00A821BF /* Release */ = {
+		5F1E74D91E39102300A821BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = P88Z863L3Q;
 				HEADER_SEARCH_PATHS = (
-					"$(glm)",
 					/usr/local/Cellar/glew/2.0.0/include/,
-					/usr/local/Cellar/glfw3/3.2.1/include/,
 					"/Users/lianyuzhe/xcode\\ workspace/OpenGL/GLSLPorgram",
+					/usr/local/Cellar/glfw3/3.2.1/include/,
+					"$(glm)",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/freeimage/3.17.0/lib,
 					/usr/local/Cellar/glfw3/3.2.1/lib,
-					"$(PROJECT_DIR)",
-					"$(glew_lib)",
 					/usr/local/lib,
 				);
 				OTHER_LDFLAGS = (
-					"-lfreeimage",
 					"-lGLEW",
+					"-lfreeimage",
 					"-lglfw3",
 					"-lGLSLPorgram",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F1E74A91E3864FD00A821BF /* Build configuration list for PBXProject "OpenGLlesson_1" */ = {
+		5F1E74CB1E39102300A821BF /* Build configuration list for PBXProject "OpenGLlession_2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5F1E74B31E3864FE00A821BF /* Debug */,
-				5F1E74B41E3864FE00A821BF /* Release */,
+				5F1E74D51E39102300A821BF /* Debug */,
+				5F1E74D61E39102300A821BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F1E74B51E3864FE00A821BF /* Build configuration list for PBXNativeTarget "OpenGLlesson_1" */ = {
+		5F1E74D71E39102300A821BF /* Build configuration list for PBXNativeTarget "OpenGLlession_2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5F1E74B61E3864FE00A821BF /* Debug */,
-				5F1E74B71E3864FE00A821BF /* Release */,
+				5F1E74D81E39102300A821BF /* Debug */,
+				5F1E74D91E39102300A821BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5F1E74A61E3864FD00A821BF /* Project object */;
+	rootObject = 5F1E74C81E39102300A821BF /* Project object */;
 }
