@@ -27,10 +27,11 @@ int main(int argc, const char * argv[]) {
     GLint handle=proc.getHandle();
     glm::mat4 model=glm::mat4(1.0f);
     model=glm::rotate(model, -35.0f, glm::vec3(1.0f,0.0f,0.0f));
-    model=glm::rotate(model,35.0f, glm::vec3(0.0f,1.0f,0.0f));
-    glm::mat4 view=glm::lookAt(glm::vec3(0.0f,0.0f,2.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,1.0f,0.0f));
-    //glm::mat4 projection=glm::perspective(70.0f, (float)1.0f, 0.3f, 100.0f);
-    glm::mat4 projection=glm::mat4(1.0f);
+    model=glm::rotate(model,-35.0f, glm::vec3(0.0f,1.0f,0.0f));
+    glm::mat4 view=glm::lookAt(glm::vec3(0.0f,0.0f,5.0f), glm::vec3(0.0f,0.0f,0.0f), glm::vec3(0.0f,1.0f,0.0f));
+    
+    glm::mat4 projection=glm::perspective(70.0f, (float)1.0f, 0.3f, 100.0f);
+    //glm::mat4 projection=glm::mat4(1.0f);
     float *vertex,*normal,*textCoords;
     unsigned int *element;
     int nVerts=30*31;
@@ -44,9 +45,9 @@ int main(int argc, const char * argv[]) {
     // Elements
     element = new unsigned int[6 * faces];
     generateTours(vertex, normal, textCoords, element, 0.7f, 0.3f, 30, 30);
-    for(int i=0;i<3*nVerts;i++){
-        std::cout<<vertex[i]<<std::endl;
-    }
+//    for(int i=0;i<3*nVerts;i++){
+//        std::cout<<vertex[i]<<std::endl;
+//    }
     unsigned int bufferHandle[4];
     glGenBuffers(4,bufferHandle);
     
@@ -92,15 +93,18 @@ int main(int argc, const char * argv[]) {
     proc.setUniform("ModelViewMatrix", mv);
     proc.setUniform("NormalMatrix",
                     glm::mat3( glm::vec3(mv[0]), glm::vec3(mv[1]), glm::vec3(mv[2]) ));
-    proc.setUniform("MVP", projection * mv);
-    proc.link();
-    proc.use();
     proc.printActiveUniforms();
+    proc.setUniform("MVP",projection*view*model);
+    proc.use();
     glEnable(GL_DEPTH_TEST);
     while(!glfwWindowShouldClose(window)){
         glfwPollEvents();
         glClearColor(0.2f,0.2f,0.2f,1.0f);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+        const GLfloat MVP[]={1.0f,0.0f,0.0f,0.0f,
+            0.0f,1.0f,0.0f,0.0f,
+            0.0f,0.0f,1.0f,0.0f,
+            0.0f,0.0f,0.0f,1.0f};
         glBindVertexArray(vaoHandle);
         glDrawElements(GL_TRIANGLES, 6 * faces, GL_UNSIGNED_INT, ((GLubyte *)NULL + (0)));
         glfwSwapBuffers(window);
@@ -142,7 +146,10 @@ int init(){
     glfwMakeContextCurrent(window);
     // Set the required callback functions
     glfwSetKeyCallback(window, key_callback);
-    glViewport(0, 0,WIDTH , HEIGHT);
+    int width, height;
+    glfwGetFramebufferSize(window, &width, &height);
+    glViewport(0, 0, width, height);
+   // glViewport(0, 0, WIDTH, HEIGHT);
     // Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
     glewExperimental = GL_TRUE;
     GLenum err=glewInit();

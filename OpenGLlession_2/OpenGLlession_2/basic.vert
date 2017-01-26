@@ -22,6 +22,6 @@ void main()
     
     LightIntensity = Ld * Kd * max( dot( s, tnorm ), 0.0 );
     //LightIntensity=vec3(1.0f,0.0f,0.0f);
-    //gl_Position = MVP * vec4(VertexPosition,1.0);
-    gl_Position =  vec4(VertexPosition,1.0);
+    gl_Position =  MVP*vec4(VertexPosition,1.0);
+    //gl_Position =  vec4(VertexPosition,1.0);
 }
