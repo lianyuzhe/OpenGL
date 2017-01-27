@@ -15,7 +15,9 @@
 const GLuint WIDTH = 800, HEIGHT = 800;
 GLFWwindow* window=nullptr;
 bool ADS=true;
+bool change=true;
 int init();
+GLint handle=0;
 bool compile(GLSLProgram &proc,bool ADS);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
 int main(int argc, const char * argv[]) {
@@ -25,7 +27,9 @@ int main(int argc, const char * argv[]) {
     if(!success){
         return false;
     }
-    GLint handle=proc.getHandle();
+    glProvokingVertex(GL_FIRST_VERTEX_CONVENTION);//涂成一个颜色对于一个平面，这个就是平面显示第一个颜色
+    //glProvokingVertex(GL_LAST_VERTEX_CONVENTION);
+    handle=proc.getHandle();
     float *vertex,*normal,*textCoords;
     unsigned int *element;
     int nVerts=30*31;
@@ -107,7 +111,9 @@ int main(int argc, const char * argv[]) {
                         glm::mat3( glm::vec3(mv[0]), glm::vec3(mv[1]), glm::vec3(mv[2]) ));//观察坐标系的法向量
         proc.setUniform("MVP",projection*view*model);
     }
-    proc.use();
+    GLuint adsIndex=glGetSubroutineIndex(handle,GL_VERTEX_SHADER,"phoneModel");
+    GLuint diffuseIndex=glGetSubroutineIndex(handle,GL_VERTEX_SHADER,"diffuseOnly");
+    glUniformSubroutinesuiv(GL_VERTEX_SHADER,1,&adsIndex);
     glEnable(GL_DEPTH_TEST);
     while(!glfwWindowShouldClose(window)){
         glfwPollEvents();
@@ -177,4 +183,16 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
+    if(key==GLFW_KEY_W&&action==GLFW_PRESS){
+        glUseProgram(handle);
+        if(change){
+            GLuint diffuseIndex=glGetSubroutineIndex(handle,GL_VERTEX_SHADER,"diffuseOnly");
+            glUniformSubroutinesuiv(GL_VERTEX_SHADER,1,&diffuseIndex);
+            change=false;
+        }else{
+            GLuint adsIndex=glGetSubroutineIndex(handle,GL_VERTEX_SHADER,"phoneModel");
+            glUniformSubroutinesuiv(GL_VERTEX_SHADER,1,&adsIndex);
+            change=true;
+        }
+    }
 }

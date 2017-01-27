@@ -1,7 +1,7 @@
 #version 400
 
-in vec3 FrontColor;
-in vec3 BackColor;
+flat in vec3 FrontColor;
+flat in vec3 BackColor;
 layout( location = 0 ) out vec4 FragColor;
 
 void main() {

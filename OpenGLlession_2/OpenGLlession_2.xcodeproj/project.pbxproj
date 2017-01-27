@@ -78,11 +78,11 @@
 				5F1E74E11E39110300A821BF /* basic.frag */,
 				5F1E74E21E39110300A821BF /* basic.vert */,
 				5FA0F50C1E3A309B00C68CEB /* ADSshading.vert */,
+				5FA0F50D1E3A469700C68CEB /* ADSshading.frag */,
 				5F1E74D31E39102300A821BF /* main.cpp */,
 				5F1E74F31E39471500A821BF /* shape.cpp */,
 				5F1E74F41E39471500A821BF /* shape.hpp */,
 				5F1E74F61E39484600A821BF /* define.h */,
-				5FA0F50D1E3A469700C68CEB /* ADSshading.frag */,
 			);
 			path = OpenGLlession_2;
 			sourceTree = "<group>";
