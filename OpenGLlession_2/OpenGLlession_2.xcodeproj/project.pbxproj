@@ -37,6 +37,8 @@
 		5F1E74F31E39471500A821BF /* shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shape.cpp; sourceTree = "<group>"; };
 		5F1E74F41E39471500A821BF /* shape.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shape.hpp; sourceTree = "<group>"; };
 		5F1E74F61E39484600A821BF /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		5FA0F50C1E3A309B00C68CEB /* ADSshading.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ADSshading.vert; sourceTree = "<group>"; };
+		5FA0F50D1E3A469700C68CEB /* ADSshading.frag */ = {isa = PBXFileReference; explicitFileType = sourcecode.glsl; fileEncoding = 4; path = ADSshading.frag; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +77,12 @@
 			children = (
 				5F1E74E11E39110300A821BF /* basic.frag */,
 				5F1E74E21E39110300A821BF /* basic.vert */,
+				5FA0F50C1E3A309B00C68CEB /* ADSshading.vert */,
 				5F1E74D31E39102300A821BF /* main.cpp */,
 				5F1E74F31E39471500A821BF /* shape.cpp */,
 				5F1E74F41E39471500A821BF /* shape.hpp */,
 				5F1E74F61E39484600A821BF /* define.h */,
+				5FA0F50D1E3A469700C68CEB /* ADSshading.frag */,
 			);
 			path = OpenGLlession_2;
 			sourceTree = "<group>";
