@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F58DAD51E3BC78D00B9F8A8 /* libGLSLPorgram.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F58DAD41E3BC78D00B9F8A8 /* libGLSLPorgram.dylib */; };
 		5F58DAD71E3BC79200B9F8A8 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F58DAD61E3BC79200B9F8A8 /* OpenGL.framework */; };
 		5F58DAD91E3BC7A000B9F8A8 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F58DAD81E3BC7A000B9F8A8 /* libGLEW.a */; };
 		5F58DAE31E3BD39C00B9F8A8 /* tiny_obj_loader.h in Sources */ = {isa = PBXBuildFile; fileRef = 5F58DAE21E3BCB2200B9F8A8 /* tiny_obj_loader.h */; };
@@ -28,7 +27,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5F58DAD41E3BC78D00B9F8A8 /* libGLSLPorgram.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLSLPorgram.dylib; path = ../../../../../usr/local/lib/libGLSLPorgram.dylib; sourceTree = "<group>"; };
 		5F58DAD61E3BC79200B9F8A8 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		5F58DAD81E3BC7A000B9F8A8 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../../usr/local/lib/libGLEW.a; sourceTree = "<group>"; };
 		5F58DADC1E3BC7AF00B9F8A8 /* basic.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = basic.frag; sourceTree = "<group>"; };
@@ -46,7 +44,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F58DAD51E3BC78D00B9F8A8 /* libGLSLPorgram.dylib in Frameworks */,
 				5F58DAD91E3BC7A000B9F8A8 /* libGLEW.a in Frameworks */,
 				5F58DAD71E3BC79200B9F8A8 /* OpenGL.framework in Frameworks */,
 			);
@@ -60,7 +57,6 @@
 			children = (
 				5F58DAD81E3BC7A000B9F8A8 /* libGLEW.a */,
 				5F58DAD61E3BC79200B9F8A8 /* OpenGL.framework */,
-				5F58DAD41E3BC78D00B9F8A8 /* libGLSLPorgram.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

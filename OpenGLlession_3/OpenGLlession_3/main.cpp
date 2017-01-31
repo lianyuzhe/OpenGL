@@ -43,12 +43,21 @@ int main(int argc, const char * argv[]) {
         glClearColor(0.2f,0.2f,0.2f,1.0f);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         procPig.use();
+        procPig.setUniform("spotKd", 0.9f, 0.5f, 0.3f);
+        procPig.setUniform("spotKs", 0.95f, 0.95f, 0.95f);
+        procPig.setUniform("spotKa", 0.27f, 0.15f, 0.09f);
+        procPig.setUniform("spotShininess", 100.0f);
+        glBindVertexArray(vaoPigHandle);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,PigBuffer[2]);
+        glDrawElements(GL_TRIANGLES, face, GL_UNSIGNED_INT, ((GLubyte *)NULL + (0)));
+        
+        procPig.setUniform("spotKd", 0.7f, 0.7f, 0.7f);
+        procPig.setUniform("spotKs", 0.9f, 0.9f, 0.9f);
+        procPig.setUniform("spotKa", 0.2f, 0.2f, 0.2f);
+        procPig.setUniform("spotShininess", 180.0f);
         glBindVertexArray(vaoPlaneHandle);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,planeBuffer[2]);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT,(GLubyte*)nullptr);
-//        glBindVertexArray(vaoPigHandle);
-//        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,PigBuffer[2]);
-//        glDrawElements(GL_TRIANGLES, face, GL_UNSIGNED_INT, ((GLubyte *)NULL + (0)));
         glfwSwapBuffers(window);
         glBindVertexArray(0);
     }
@@ -81,6 +90,7 @@ bool renderPlane(unsigned int& vaoPlaneHandle,unsigned int planeBuffer[3]){
     glBindBuffer(GL_ARRAY_BUFFER,planeBuffer[1]);
     glBufferData(GL_ARRAY_BUFFER,4*3*sizeof(GLfloat),normal,GL_STATIC_DRAW);
     glEnableVertexAttribArray(1);
+    
     glVertexAttribPointer(1,3,GL_FLOAT,GL_FALSE,0,(GLubyte*)nullptr);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,planeBuffer[2]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER,6*sizeof(unsigned int),element,GL_STATIC_DRAW);
@@ -170,26 +180,26 @@ bool render(GLSLProgram &proc,unsigned int &vaoHandle,unsigned int bufferHandle[
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,bufferHandle[2]);
     glBindVertexArray(0);
 //    mat4 view = glm::lookAt(vec3(0.0f,3.0f,4.0f), vec3(-2.0f,0.0f,0.0f), vec3(0.0f,1.0f,0.0f));
-    mat4 view = glm::lookAt(vec3(0.0f,20.0f,20.0f), vec3(0.0f,0.0f,0.0f), vec3(0.0f,1.0f,0.0f));
+    mat4 view = glm::lookAt(vec3(1.0f,3.0f,1.0f), vec3(-1.0f,1.0f,-1.0f), vec3(0.0f,1.0f,0.0f));
     mat4 projection = glm::perspective(70.0f, 1.0f, 0.03f, 100.0f);
     mat3 normalMatrix = mat3( vec3(view[0]), vec3(view[1]), vec3(view[2]) );
     char name[20];
     float x, z;
-//    for( int i = 1; i < 5; i++ ) {
-//        snprintf(name, 20, "Lights[%d].Position", i);
-//        x = 2.0 * cos((TWOPI / 5) * i);
-//        z = 2.0 * sin((TWOPI / 5) * i);
-//        proc.setUniform(name, view * vec4(x, 1.2f, z + 1.0f, 1.0f) );
-//    }
+    for( int i = 1; i < 5; i++ ) {
+        snprintf(name, 20, "Lights[%d].Position", i);
+        x = 2.0 * cos((TWOPI / 5) * i);
+        z = 2.0 * sin((TWOPI / 5) * i);
+        proc.setUniform(name, view * vec4(x, 1.2f, z + 1.0f, 1.0f) );
+    }
     mat4 model = mat4(1.0f);
-    proc.setUniform("Lights[0].Position", vec3(0.0f,5.0f,0.0f));
+    proc.setUniform("Lights[0].Position", view*vec4(0.0f,5.0f,0.0f,1.0f));
     vec3 light1pos=vec3(0.0f,-1.0f,0.0f);
-    proc.setUniform("Lights[0].direction", (light1pos));
+    proc.setUniform("Lights[0].direction", normalMatrix*(light1pos));
     proc.setUniform("Lights[0].Intensity", vec3(0.9f,0.9f,0.9f) );
-//    proc.setUniform("Lights[1].Intensity", vec3(0.0f,0.0f,0.8f) );
-//    proc.setUniform("Lights[2].Intensity", vec3(0.8f,0.0f,0.0f) );
-//    proc.setUniform("Lights[3].Intensity", vec3(0.0f,0.8f,0.0f) );
-//    proc.setUniform("Lights[4].Intensity", vec3(0.8f,0.8f,0.8f) );
+    proc.setUniform("Lights[1].Intensity", vec3(0.0f,0.0f,0.8f) );
+    proc.setUniform("Lights[2].Intensity", vec3(0.8f,0.0f,0.0f) );
+    proc.setUniform("Lights[3].Intensity", vec3(0.0f,0.8f,0.0f) );
+    proc.setUniform("Lights[4].Intensity", vec3(0.8f,0.8f,0.8f) );
     proc.setUniform("Lights[0].enableSpotLight", true);
     proc.setUniform("Lights[0].exponent", 2.0f);
     proc.setUniform("Lights[0].cutoff", 0.15f*3.1415f);
@@ -198,19 +208,15 @@ bool render(GLSLProgram &proc,unsigned int &vaoHandle,unsigned int bufferHandle[
     proc.setUniform("Lights[2].enableSpotLight", false);
     proc.setUniform("Lights[3].enableSpotLight", false);
     proc.setUniform("Lights[4].enableSpotLight", false);
-    proc.setUniform("Lights[1].Intensity", vec3(0.0f,0.0f,0.0f) );
-    proc.setUniform("Lights[2].Intensity", vec3(0.0f,0.0f,0.0f) );
-    proc.setUniform("Lights[3].Intensity", vec3(0.0f,0.0f,0.0f) );
-    proc.setUniform("Lights[4].Intensity", vec3(0.0f,0.0f,0.0f) );
-//    proc.setUniform("Kd", 0.4f, 0.4f, 0.4f);
-//    proc.setUniform("Ks", 0.9f, 0.9f, 0.9f);
-//    proc.setUniform("Ka", 0.1f, 0.1f, 0.1f);
-//    proc.setUniform("Shininess", 180.0f);
+//    proc.setUniform("Lights[1].Intensity", vec3(0.0f,0.0f,0.0f) );
+//    proc.setUniform("Lights[2].Intensity", vec3(0.0f,0.0f,0.0f) );
+//    proc.setUniform("Lights[3].Intensity", vec3(0.0f,0.0f,0.0f) );
+//    proc.setUniform("Lights[4].Intensity", vec3(0.0f,0.0f,0.0f) );
+    proc.setUniform("Kd", 0.4f, 0.4f, 0.4f);
+    proc.setUniform("Ks", 0.9f, 0.9f, 0.9f);
+    proc.setUniform("Ka", 0.1f, 0.1f, 0.1f);
+    proc.setUniform("Shininess", 180.0f);
     
-    proc.setUniform("Kd", 0.9f, 0.5f, 0.3f);
-    proc.setUniform("Ks", 0.95f, 0.95f, 0.95f);
-    proc.setUniform("Ka", 0.27f, 0.15f, 0.09f);
-    proc.setUniform("Shininess", 100.0f);
     //model = glm::rotate(model,90.0f, vec3(0.0f,1.0f,0.0f));
     mat4 mv = view * model;
     proc.setUniform("ModelViewMatrix", mv);
